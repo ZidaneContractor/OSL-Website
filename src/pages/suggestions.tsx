@@ -1,8 +1,8 @@
-// src/pages/visitor-logbook.tsx
+// src/pages/suggestions.tsx
 import React, { useState } from "react"
 import { createClient } from "@supabase/supabase-js"
 import { Helmet } from "react-helmet"
-import { WindowLocation } from "@reach/router"
+import { PageProps } from "gatsby"
 import Layout from "../components/layout"
 import { Logo } from "../components/utils"
 import "../style/suggestions.css"
@@ -17,9 +17,7 @@ console.log("Supabase Key exists:", !!supabaseKey)
 const supabase =
     supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null
 
-type suggestionsProps = {
-    location: WindowLocation
-}
+type suggestionsProps = PageProps
 
 const suggestions: React.FC<suggestionsProps> = ({ location }) => {
     const [formData, setFormData] = useState({
